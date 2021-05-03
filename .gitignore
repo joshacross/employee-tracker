@@ -39,6 +39,7 @@ build/Release
 
 # Dependency directories
 echo node_modules/
+node_nodules/
 jspm_packages/
 
 # TypeScript v1 declaration files
