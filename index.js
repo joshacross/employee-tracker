@@ -1,13 +1,14 @@
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
-// const express = require('express');
-// const app = express();
+const express = require('express');
+const app = express();
 
-// db.connect((err) => {
-//     if (err) throw err;
-//     employeeTracker();
-// });
+// middleware
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+const db = require('./db/connection');
 
 const employeeTracker = () => {
     return inquirer
@@ -159,6 +160,9 @@ const updateEmployee = () => {
     employeeTracker();
     return;
 };
+
+employeeTracker();
+module.exports = employeeTracker;
 
 
 
