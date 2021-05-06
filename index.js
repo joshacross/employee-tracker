@@ -8,8 +8,6 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-const db = require('./db/connection');
-
 const employeeTracker = () => {
     return inquirer
         .prompt([
