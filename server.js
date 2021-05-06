@@ -3,22 +3,19 @@ const express = require('express');
 // connecting to mySQL database under db/connection
 const db = require('./db/connection');
 
-// router for api Routes from index.js file 
-// const apiRoutes = require('./routes/apiRoutes');
+// pulling in employeeTracker() from index.js file
+const employeeTracker = require('./index');
 
 // adding PORT destination and app expression
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// // import inputCheck module ((moved to candidateRoutes.js file))
-// const inputCheck = require('./utils/inputCheck');
-
-// express middleware
+// middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Telling app to append suffix to look use routes
-// app.use('/api', apiRoutes);
+app.use('/api', employeeTracker);
 
 //Route to handle user requests that are not supported by the app (aka - default response for any other request (not found))
 app.use((req, res) => {
