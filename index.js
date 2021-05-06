@@ -1,12 +1,13 @@
+const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
-const express = require('express');
-const app = express();
+// const express = require('express');
+// const app = express();
 
-// middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-const db = require('./db/connection');
+// db.connect((err) => {
+//     if (err) throw err;
+//     employeeTracker();
+// });
 
 const employeeTracker = () => {
     return inquirer
@@ -50,10 +51,6 @@ const employeeTracker = () => {
                 
                 case 'Update an Employee Role':
                     updateEmployee();
-                    break;
-
-                default:
-                    console.log('Invalid action: $(answer.action}');
                     break;
             }
         });
@@ -134,6 +131,24 @@ const addDepartment = () => {
 };
 
 const addEmployee = () => {
+    inquirer
+        .prompt([
+            {
+                name: 'employeeName',
+                type: 'input',
+                message: 'What is the employees first name?'
+                // validate: nameInput =>
+                // validate: nameInput => {
+                //     if (nameInput) {
+                //         return true;
+                //     } else {
+                //         console.log('Please enter a valid department name');
+                //         return false;
+                //     }
+                // }
+            }
+        ])
+        .then()
     console.log('Add Employee Script');
     employeeTracker();
     return;
