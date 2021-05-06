@@ -15,7 +15,7 @@ const employeeTracker = () => {
         .prompt([
             {
                 name: 'action',
-                type: 'rawlist',
+                type: 'list',
                 message: "What would you like to do?",
                 choices: [
                     'View All Departments', 
@@ -24,7 +24,7 @@ const employeeTracker = () => {
                     'Add a Department', 
                     'Add a Role', 
                     'Add an Employee', 
-                    'Update an Employee Role',
+                    'Update an Employee Role'
                 ],
             }
         ])
