@@ -2,18 +2,14 @@ const mysql = require('mysql2');
 const inquirer = require('inquirer');
 const cTable = require('console.table');
 const express = require('express');
-const app = express();
-
-// middleware
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+const db = require('./db/connection');
 
 const employeeTracker = () => {
-    return inquirer
+    inquirer
         .prompt([
             {
                 name: 'action',
-                type: 'list',
+                type: 'rawlist',
                 message: "What would you like to do?",
                 choices: [
                     'View All Departments', 
@@ -56,7 +52,7 @@ const employeeTracker = () => {
 };
 
 const viewDepartments = () => {
-    const sql = 'SELECT * FROM departments';
+    const sql = `SELECT * FROM departments`;
     db.query(sql, (err, rows) => {
         if(err) {
             console.log(err);
@@ -111,7 +107,7 @@ const addDepartment = () => {
                         return true;
                     } else {
                         console.log('Please enter a valid department name');
-                        return false;
+                        return;
                     }
                 }
             }
