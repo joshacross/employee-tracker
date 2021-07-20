@@ -41,7 +41,7 @@ open a new  type `npm run seed` to seed the database with dummy data and `npm st
 * use the arrow keys and prompts to navigate the application. 
 
 ## Video
-
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/9930b1aa7a254f5b96f0e287540bf396" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ## Reference Images
 <img src="db/assets/images/1.png" alt="application running in the commandline prompting user to view departments, roles, employees, and update an employee role">
